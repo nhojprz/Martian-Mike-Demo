@@ -1,0 +1,105 @@
+[gd_scene load_steps=12 format=3 uid="uid://b8g8tbwilxtci"]
+
+[ext_resource type="PackedScene" uid="uid://bxo4kwhr0aj03" path="res://scenes/bg.tscn" id="1_6t48d"]
+[ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_eps4h"]
+[ext_resource type="Texture2D" uid="uid://bdk5gsjmu6kmn" path="res://assets/textures/bg/Brown.png" id="2_b3arn"]
+[ext_resource type="FontFile" uid="uid://bixlqsfccwvtv" path="res://assets/fonts/Kenney Pixel Square.ttf" id="3_sclcj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nt0ud"]
+font = ExtResource("3_sclcj")
+font_size = 40
+font_color = Color(1, 0, 0.25, 1)
+outline_size = 5
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.392157)
+shadow_offset = Vector2(5, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xeo4u"]
+bg_color = Color(0, 0.65, 0.0108333, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_17xva"]
+bg_color = Color(0, 0.92, 0.214667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0t18a"]
+bg_color = Color(0, 0.65098, 0.0117647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1cnlo"]
+bg_color = Color(0.9, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5gcwm"]
+bg_color = Color(0.6, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yuaie"]
+bg_color = Color(0.901961, 0, 0, 1)
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eps4h")
+
+[node name="BG" parent="." instance=ExtResource("1_6t48d")]
+bg_change = ExtResource("2_b3arn")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = -83.0
+offset_right = 170.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "martian mike"
+label_settings = SubResource("LabelSettings_nt0ud")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -7.0
+offset_right = 59.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_sclcj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xeo4u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_17xva")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0t18a")
+text = "Play"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = 37.0
+offset_right = 49.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_sclcj")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_1cnlo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5gcwm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yuaie")
+text = "quit"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://con3033if7rg6"]
+
+[ext_resource type="PackedScene" uid="uid://chr2yxpgy6div" path="res://scenes/hud.tscn" id="1_c1q10"]
+[ext_resource type="Script" path="res://scripts/ui_layer.gd" id="1_ds1ta"]
+[ext_resource type="PackedScene" uid="uid://me0v50mh2jmn" path="res://scenes/win_screen.tscn" id="3_0lisc"]
+[ext_resource type="Texture2D" uid="uid://cux3ehm8numdw" path="res://assets/textures/Tiles (White)/tile_0791.png" id="4_svqfx"]
+[ext_resource type="Texture2D" uid="uid://o04yhpl7bmk5" path="res://assets/textures/Tiles (White)/tile_0792.png" id="5_ii4yd"]
+[ext_resource type="Texture2D" uid="uid://b6n8xg3yma1u5" path="res://assets/textures/Tiles (White)/tile_0794.png" id="6_fcily"]
+
+[node name="UILayer" type="CanvasLayer"]
+script = ExtResource("1_ds1ta")
+
+[node name="HUD" parent="." instance=ExtResource("1_c1q10")]
+anchors_preset = 15
+anchor_left = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_vertical = 2
+
+[node name="WinScreen" parent="." instance=ExtResource("3_0lisc")]
+visible = false
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(382, 203)
+scale = Vector2(3.5, 3.181)
+texture_normal = ExtResource("4_svqfx")
+action = "jump"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="."]
+position = Vector2(97, 200)
+scale = Vector2(3.5, 3.5)
+texture_normal = ExtResource("5_ii4yd")
+action = "move_right"
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="."]
+position = Vector2(20, 202)
+scale = Vector2(3.5, 3.5)
+texture_normal = ExtResource("6_fcily")
+action = "move_left"

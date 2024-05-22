@@ -1,0 +1,100 @@
+[gd_scene load_steps=8 format=3 uid="uid://me0v50mh2jmn"]
+
+[ext_resource type="FontFile" uid="uid://bixlqsfccwvtv" path="res://assets/fonts/Kenney Pixel Square.ttf" id="1_5hxuh"]
+[ext_resource type="Script" path="res://scripts/win_screen.gd" id="1_n5x5f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hlu8d"]
+font = ExtResource("1_5hxuh")
+font_size = 32
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.439216)
+shadow_offset = Vector2(5, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7l2f5"]
+font = ExtResource("1_5hxuh")
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aj00b"]
+bg_color = Color(8.18223e-07, 0.5342, 0.23919, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x1ekd"]
+bg_color = Color(0, 0.29, 0.154667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okn0n"]
+bg_color = Color(0, 0.64, 0.373333, 1)
+
+[node name="WinScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n5x5f")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.807843)
+
+[node name="Win" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -74.0
+offset_top = 11.0
+offset_right = 74.0
+offset_bottom = 59.0
+grow_horizontal = 2
+text = "Panalo!"
+label_settings = SubResource("LabelSettings_hlu8d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DevMessage" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = -37.0
+offset_right = 117.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Thank you for playing
+'til next time mi amigo!"
+label_settings = SubResource("LabelSettings_7l2f5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -82.0
+offset_top = -91.0
+offset_right = 85.0
+offset_bottom = -63.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_5hxuh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aj00b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_x1ekd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_okn0n")
+text = "'til next time..."
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
